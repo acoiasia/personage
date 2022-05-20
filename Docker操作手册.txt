@@ -1,6 +1,12 @@
 # docker
 
 注意:所有镜像不加标签默认下载最新版
+    docker容器内默认是没有编辑功能的需要手动进行安装
+    docker容器安装vim
+    进入镜像命令
+    docker exec -it 镜像Id或镜像name /bin/bash
+    运行 apt-get update，然后执行 apt-get install -y vim
+    由于安装的时候访问的外网所以下载异常缓慢(自行搭建梯子或者百度修改镜像源)
 
 一、安装
 在线安装docker(Linux版)

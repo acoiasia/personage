@@ -1,0 +1,8 @@
+redis客户端
+https://github.com/qishibo/AnotherRedisDesktopManager
+
+M1无法打开软件/Mac M1 errors damaged and can’t be opened. You should move it to the Trash:
+
+执行以下命令即可
+sudo spctl --master-disable
+sudo xattr -rd com.apple.quarantine /Applications/Another\ Redis\ Desktop\ Manager.app

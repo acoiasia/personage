@@ -1,0 +1,102 @@
+# docker
+
+注意:所有镜像不加标签默认下载最新版
+
+一、安装
+在线安装docker(Linux版)
+1.安装yum工具
+yum install -y yum-utils 
+2.更新 yum 缓存
+yum makecache fast  (centos7)
+yum makecache  (centos8)
+3.添加阿里yum源
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+4.安装新版 docker
+yum install -y docker-ce docker-ce-cli containerd.io
+5.启动docker
+systemctl start docker  启动
+6.配置阿里云镜像加速
+点击链接自行注册阿里云账号
+https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
+复制下面的内容在虚拟机执行
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": [这里是你自己的阿里云加速地址]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+systemctl enable docker  设置开机自启
+7.查看是否加速成功
+docker info
+
+二、docker安装数据库
+1.拉取mysql镜像
+docker pull mysql/mysql-server
+2.修改镜像名称
+docker tag mysql/mysql-server:latest mysql:版本号
+3.启动mysql服务
+docker run -p 3306:3306 --name mysql --restart=always \
+-v /usr/local/docker/mysql/mysql-files:/var/lib/mysql-files \
+-v /usr/local/docker/mysql/conf:/etc/mysql \
+-v /usr/local/docker/mysql/logs:/var/log/mysql \
+-v /usr/local/docker/mysql/data:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=root \
+-d mysql:版本号
+4.进入容器
+docker exec -it 服务id(一般输前三位即可) bash
+5.进入数据库
+mysql -uroot -proot 这个密码就是第三步设置的密码
+6.切换到mysql数据库
+use mysql;
+7.设置远程连接
+update user set host='%' where user ='root';
+8.刷新权限
+flush privileges;
+
+三、docker安装nginx
+第一步：拉取nginx镜像 （从hub.docker.com去查找）
+docker pull nginx
+第二步：查看images镜像
+docker images
+第三步:创建数据卷(这个对象会在宿主机直接创建一个目录)
+docker volume create nginx-vol
+说明:查看数据卷对应的宿主机目录,可以通过如下指令:
+docker inspect nginx-vol
+第四步：启动nginx服务
+docker run --name nginx --restart=always -p 80:80 -v nginx-vol:/etc/nginx -d nginx
+
+四、docker安装Redis数据库
+第一步：下载镜像文件
+docker pull redis(默认最新版)
+第二步：准备配置文件
+创建redis配置文件目录
+mkdir -p /usr/local/docker/redis/conf
+在配置文件录下创建redis.conf配置文件(这个文件一定要创建，否在我们进行目录挂载时默认生成的是一个目录)
+touch /usr/local/docker/redis/conf/redis.conf
+第三步：创建redis实例并启动
+docker run -p 6379:6379 --name redis \
+-v /usr/local/docker/redis/data:/data \
+-v /usr/local/docker/redis/conf/redis.conf:/etc/redis/redis.conf \
+-d redis redis-server /etc/redis/redis.conf 
+第四步：查看正在运行的进程
+docker ps
+访问redis服务器
+第一步：控制台直接连接redis测试
+docker exec -it redis bash
+第二步：检测redis 版本
+redis-server  -v
+或者
+redis-cli -v
+第三步：登录redis(默认不需要密码)
+redis-cli
+或者直接将上面的两个步骤合为一个步骤执行也可以，指令如下：
+docker exec -it redis redis-cli
+停止和启动redis服务
+停止redis服务
+docker stop redis
+启动redis服务
+docker start redis
+重启 redis 服务
+docker restart redis

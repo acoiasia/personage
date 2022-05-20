@@ -1,0 +1,5 @@
+IDEA配置提交时忽悠不需要的文件
+mac
+Preferences->Editor->File Type->Ignored Files and Folders->添加要屏蔽的文件名
+Windows
+settings->Editor->File Type->Ignored Files and Folders->添加要屏蔽的文件名

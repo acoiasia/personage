@@ -1,0 +1,6 @@
+Sublime Text设置中文
+1.打开Sublime Text,使用快捷键Shift+Ctrl+P,弹出查找栏
+2.在搜索框中输入关键字 install ,出现下拉选项，点击选择其中的：Package Control: Install Package
+刚点击之后并不会立刻有反应，需要稍等一会，（我当时就以为自己没点到，其实并不是），然后就会弹出一个消息框，表示插件列表加载完成
+3.在搜索框中输入chinese，选择下拉框中的ChineseLocalizations
+4.点击之后，中文包就安装完成了，注意需要重新打开Sublime Text，点击任务栏中的Help->最下面的Language->简体中文 （不重新打开找不到）

@@ -1,0 +1,30 @@
+数据库操作
+
+一、导入/导出
+mysqldump 导出提示Couldn‘t execute SELECT COLUMN_NAME...
+错误提示:
+mysqldump: Couldn’t execute 'SELECT COLUMN_NAME, JSON_EXTRACT(HISTOGRAM, ‘$.“number-of-buckets-specified”’) FROM information_schema.COLUMN_STATISTICS
+原因:
+因为新版的mysqldump默认启用了一个新标志，通过--column-statistics=0来禁用它
+解决方法:
+在导出命令中添加 --column-statistics=0 属性
+
+二、字符集
+查看字符集
+查看数据库字符集
+show variables like '%character%';
+查看表的字符集
+show table status from 数据库名 like '表名';
+查看所有字段的字符集
+show full columns from 表名;
+
+修改字符集
+修改数据库字符集
+alter database 库名 default character set '字符集';
+修改表的字符集
+alter table 表名 convert to character set '字符集';
+修改字段的字符集
+alter table 表名 modify 字段名 字段属性 character set '字符集'；
+
+创建表时指定字符集
+在末尾添加 ENGINE=InnoDB DEFAULT CHARSET='字符集'

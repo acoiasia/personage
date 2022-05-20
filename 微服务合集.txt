@@ -1,0 +1,5 @@
+sentinel熔断限流
+1.在Github获取jar包
+https://github.com/alibaba/Sentinel/releases
+2.启动sentinel
+java -Dserver.port=8180 -Dcsp.sentinel.dashboard.server=localhost:8180 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.8.4.jar(自己版本是多少这里就写多少)

@@ -1,0 +1,6 @@
+出现的异常及解决方案
+
+数据库有关异常
+1.java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed 无法加载公钥 (目前已知)此异常只会出现在mysql8.0中
+解决方案:在连接数据库的url后面添加 &allowPublicKeyRetrieval=true 属性
+此异常随机出现，目前没发现会在什么特定条件下触发

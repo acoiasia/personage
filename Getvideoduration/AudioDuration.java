@@ -35,7 +35,7 @@ public class AudioDuration {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        log.warn(length+ "秒");
+        log.info(length+ "秒");
         return length;
 
     }

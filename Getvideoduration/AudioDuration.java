@@ -36,7 +36,7 @@ public class AudioDuration {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        log.info(length+ "秒");
+        log.info("视频时长为"+length+ "秒");
         return length;
 
     }

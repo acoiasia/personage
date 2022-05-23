@@ -11,6 +11,7 @@ import java.net.URL;
 /**
  * @author 李永强
  * @date 2022/5/21 15:38
+ * 根据音频文件本地存放路径或url地址获取时长
  */
 @Slf4j
 public class AudioDuration {

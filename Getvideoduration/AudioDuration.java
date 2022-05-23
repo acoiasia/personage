@@ -38,6 +38,5 @@ public class AudioDuration {
         }
         log.info("视频时长为"+length+ "秒");
         return length;
-
     }
 }

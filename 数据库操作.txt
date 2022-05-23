@@ -28,3 +28,9 @@ alter table 表名 modify 字段名 字段属性 character set '字符集'；
 
 创建表时指定字符集
 在末尾添加 ENGINE=InnoDB DEFAULT CHARSET='字符集'
+
+查看数据库的配置文件路径
+1.查看mysqld的路径
+which mysqld 
+2.在根目录下执行
+上一步得到的路径 --verbose --help |grep -A 1 'Default options'

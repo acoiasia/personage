@@ -1,3 +1,56 @@
+Windows安装mysql
+1.https://dev.mysql.com/downloads/mysql/ 
+Mysql数据库下载地址
+2.下载这个压缩包Windows (x86, 64-bit), ZIP Archive
+3.解压下载的压缩包
+4.在解压后的文件夹里右键创建一个文本（.text）
+修改命名为my.ini(.ini就是一种文件的格式和text一样的东西)
+将下面的内容复制到my.ini中（将mysql的安装目录，mysql数据库的数据的存放目录改成你的下载路径和存放路径）
+[mysqld] 
+# 设置mysql的安装目录，也就是刚才我们解压的目录
+basedir=D:\MySQL
+# 设置mysql数据库的数据的存放目录
+# datadir=D:\MySQL\data
+# 设置默认使用的端口
+port=3306
+# 允许最大连接数
+max_connections=200
+# 允许连接失败的次数。这是为了防止有人试图攻击数据库
+max_connect_errors=10
+# 服务端使用的字符集
+character-set-server=utf8mb4
+# 数据库字符集对应一些排序等规则使用的字符集
+collation-server=utf8mb4_general_ci
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+# 默认使用“mysql_native_password”插件作为认证加密方式
+# MySQL8.0默认认证加密方式为caching_sha2_password
+default_authentication_plugin=mysql_native_password
+ 
+[mysql]
+# 设置mysql客户端默认字符集
+default-character-set=utf8mb4
+ 
+[client]
+default-character-set=utf8mb4
+port=3306
+
+5.初始化MySQL，在安装时，避免权限问题出错尽量使用管理员身份运行cmd
+否则在安装时会报错，会导致安装失败的情况，如下图所示：
+D:转到D盘(安装到哪个盘就转哪个盘)
+cd  bin的存储路径   转到bin目录下
+6.初始化MySQL，输入mysqld --initialize --console，记录初始化密码
+7.安装MySQL服务，输入 mysqld --install [服务名]（服务名可以不加默认为mysql）
+8.net start mysql(启动SQL)
+mysql -uroot -p
+初始密码（这样子就进入数据库了，可以更改你的密码了）
+net stop mysql(停止SQL)
+9.修改密码：
+alter user 'root'@'localhost' IDENTIFIED BY '新密码';
+或者
+set password for 用户名@localhost = password(‘新密码’);
+
+
 数据库操作
 
 一、导入/导出

@@ -10,3 +10,6 @@ Mac
 Intellij Idea —> Preferences 搜索关键字 Ignored Files，并取消勾选
 Windows
 File->settings->搜索关键字 Ignored Files，并取消勾选
+
+Intellij Idea打开Registry
+Ctrl+Shift+A打开全局搜索 搜Registry

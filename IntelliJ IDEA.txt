@@ -1,5 +1,12 @@
-Intellij Idea 误操作导致某个提示功能被disable，想要恢复
+Intellij Idea 
+误操作导致某个提示功能被disable，想要恢复
 Mac
-Preferences->Editor->Intentions->没选的勾选上就可以了
+Intellij Idea->Preferences->Editor->Intentions->没选的勾选上就可以了
 Windows
-settings->Editor->Intentions->没选的勾选上就可以了
+File->settings->Editor->Intentions->没选的勾选上就可以了
+
+pom文件变黑有横线
+Mac
+Intellij Idea —> Preferences 搜索关键字 Ignored Files，并取消勾选
+Windows
+File->settings->搜索关键字 Ignored Files，并取消勾选

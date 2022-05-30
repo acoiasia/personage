@@ -87,3 +87,6 @@ alter table 表名 modify 字段名 字段属性 character set '字符集'；
 which mysqld 
 2.在根目录下执行
 上一步得到的路径 --verbose --help |grep -A 1 'Default options'
+
+在已创建的表中添加字段
+alter table 表名 add 字段名 字段类型 null(是否为空) comment '备注';

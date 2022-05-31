@@ -1,0 +1,30 @@
+mac终端添加ll、la、l命令
+
+1、打开终端
+
+vim ~/.bash_profile 
+添加
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+按ESC之后输入:wq
+
+或者 
+open -e ~/.bash_profile
+添加
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+按住command+s保存
+
+保存完成之后生效环境变量
+source ~/.bash_profile
+
+2、设置开启终端加载命令
+由于重启终端自动加载~/.zshrc文件，所以在.zshrc加上source ~/.bash_profile
+
+在~/.zshrc文件最后，增加一行：
+vim ~/.zshrc
+
+source ~/.bash_profile

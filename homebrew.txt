@@ -1,0 +1,27 @@
+brew install报错解决方案
+错误信息:
+  Warning: No remote 'origin' in /opt/homebrew/Library/Taps/homebrew/homebrew-cask, skipping update!
+  Warning: No remote 'origin' in /opt/homebrew/Library/Taps/homebrew/homebrew-core, skipping update!
+  Warning: No remote 'origin' in /opt/homebrew/Library/Taps/homebrew/homebrew-services, skipping update!
+  中间的省略
+  fatal: not in a git directory
+  Error: Command failed with exit 128: git
+错误原因:
+执行 brew -v时                  
+Homebrew 3.4.11提示
+fatal: unsafe repository ('/opt/homebrew/Library/Taps/homebrew/homebrew-core' is owned by someone else)
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-core
+Homebrew/homebrew-core (no Git repository)
+fatal: unsafe repository ('/opt/homebrew/Library/Taps/homebrew/homebrew-cask' is owned by someone else)
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /opt/homebrew/Library/Taps/homebrew/homebrew-cask
+Homebrew/homebrew-cask (no Git repository)
+
+因为homebrew-core和homebrew-cask目录 被git认为不是一个安全的目录
+解决方案:
+手动添加
+git config --global --add safe.directory 你的homebrew-core路径
+git config --global --add safe.directory 你的homebrew-cask路径

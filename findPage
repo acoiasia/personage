@@ -1,0 +1,20 @@
+    //自定义重写分页查询
+    //  1.重写 findPage方法
+
+    /*@Override
+    public Page<SzjyStudyplan, SzjyStudyplanModel> findPage(Page<SzjyStudyplan, SzjyStudyplanModel> page) {
+
+
+        page.pageHelperBegin();
+        try{
+            //2 自定义一个 类似findList 方法 一步一步 到mapper.xml
+            List<T> list = this.findList(page.getQueryWrapper());
+
+            PageInfo<T> pageInfo = new PageInfo<>(list);
+            List<E> es = transformTs2Ms(pageInfo.getList());
+            page.instance(pageInfo, es);
+        } finally {
+            page.pageHelperEnd();
+        }
+        return page;
+    }*/

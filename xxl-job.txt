@@ -1,0 +1,5 @@
+ 启动xxl-job报错
+ Failed to create parent directories for [/data/applogs/xxl-job/xxl-job-admin.log]
+ 解决方案
+ 修改项目目录下的/src/main/resources/logback.xml
+ data/applogs/xxl-job/xxl-job-admin.log 改成 ./data/applogs/xxl-job/xxl-job-admin.log

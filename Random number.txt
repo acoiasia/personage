@@ -1,0 +1,1 @@
+随机数a~b公式：int value = (int) (Math.random()*(b-a+ 1)+a)

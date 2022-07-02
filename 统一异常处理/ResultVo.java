@@ -6,6 +6,7 @@ import java.util.Map;
 /**
  * @author 李永强
  * @date 2022/7/2 12:15
+ * 统一结果类
  */
 @Data
 public class ResultVo {

@@ -24,4 +24,3 @@ public enum ResultCodeEnum {
         this.message = message;
     }
 }
-

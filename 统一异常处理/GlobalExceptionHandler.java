@@ -1,14 +1,13 @@
-/**
- * @author 李永强
- * @date 2022/7/2 12:24
- * 统一异常处理器
- */
-
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.HttpClientErrorException;
 
+/**
+ * @author 李永强
+ * @date 2022/7/2 12:24
+ * 统一异常处理器
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

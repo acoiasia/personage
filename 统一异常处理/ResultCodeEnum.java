@@ -3,6 +3,7 @@ import lombok.Getter;
 /**
  * @author 李永强
  * @date 2022/7/2 12:05
+ * 结果枚举类
  */
 @Getter
 public enum ResultCodeEnum {

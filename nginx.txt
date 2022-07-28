@@ -1,0 +1,20 @@
+nginx安装(linux)
+1.下载
+http://nginx.org/en/download.html
+2.上传安装包
+3.解压安装包
+tar -zxvf nginx-1.22.0.tar.gz 
+4.进入目录
+cd nginx-1.22.0/
+5.安装nginx依赖项  
+yum -y install gcc pcre-devel zlib-devel openssl openssl-devel
+6.执行./configure(如果 ./configure 报错没有权限,则执行chmod + x configure)
+7.在当前目录执行 make
+8.执行 make install
+9.whereis nginx查找工作目录
+10.进入工作目录
+cd /usr/local/nginx/
+11.进入sbin目录
+启动命令: ./nginx
+重启命令: ./nginx -s reload
+关闭命令: ./nginx -s stop

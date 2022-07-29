@@ -1,0 +1,4 @@
+重新安装mac系统
+
+sudo /Applications/Install\ macOS\ 具体版本/Contents/Resources/createinstallmedia --volume /Volumes/磁盘名称
+回车等待即可

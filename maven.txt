@@ -1,0 +1,3 @@
+#maven环境变量
+export M2_HOME=安装目录
+export PATH=$PATH:$M2_HOME/bin

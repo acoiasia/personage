@@ -28,3 +28,7 @@ source ~/.bash_profile
 vim ~/.zshrc
 
 source ~/.bash_profile
+
+mac启动台图标错乱解决方案
+rm ~/Library/Application\ Support/Dock/*.db && killall Dock
+defaults write com.apple.dock ResetLaunchPad -bool true && killall Dock

@@ -1,0 +1,15 @@
+安装ffmpeg
+
+brew install ffmpeg
+# 查看版本
+ffmpeg -version
+
+# 查看编码器和解码器
+ffmpeg -encoders
+
+用法示例
+1，avi、mkv、flv等格式转为mp4
+ffmpeg -i input.avi -c copy output.mp4
+
+2，wmv、asf、rmvb等格式转为mp4
+ffmpeg -i input.asf output.mp4

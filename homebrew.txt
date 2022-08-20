@@ -1,3 +1,14 @@
+安装HomeBrew
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+选择第一个
+y
+查看是否成功 brew -v
+更新 Homebrew
+brew update
+卸载 Homebrew
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/HomebrewUninstall.sh)"
+
+
 brew install报错解决方案
 错误信息:
   Warning: No remote 'origin' in /opt/homebrew/Library/Taps/homebrew/homebrew-cask, skipping update!

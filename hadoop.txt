@@ -1,0 +1,47 @@
+1.错误信息
+Container exited with a non-zero exit code 1. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+Last 4096 bytes of stderr :
+错误: 找不到或无法加载主类 org.apache.hadoop.mapreduce.v2.app.MRAppMaster
+
+解决方案
+在界面运行：
+hadoop classpath
+修改 $HADOOP_HOME/etc/hadoop/yarn-site.xml文件添加
+<property>
+        <name>yarn.application.classpath</name>
+        <value>hadoop classpath返回信息</value>
+</property>
+ 
+重启yarn 
+
+
+2.hadoop-3.1.0启动hadoop集群时报错
+[root@localhost sbin]# start-all.sh
+Starting namenodes on [hadoop]
+ERROR: Attempting to operate on hdfs namenode as root
+ERROR: but there is no HDFS_NAMENODE_USER defined. Aborting operation.
+Starting datanodes
+ERROR: Attempting to operate on hdfs datanode as root
+ERROR: but there is no HDFS_DATANODE_USER defined. Aborting operation.
+Starting secondary namenodes [hadoop]
+ERROR: Attempting to operate on hdfs secondarynamenode as root
+ERROR: but there is no HDFS_SECONDARYNAMENODE_USER defined. Aborting operation.
+2018-07-16 05:45:04,628 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Starting resourcemanager
+ERROR: Attempting to operate on yarn resourcemanager as root
+ERROR: but there is no YARN_RESOURCEMANAGER_USER defined. Aborting operation.
+Starting nodemanagers
+ERROR: Attempting to operate on yarn nodemanager as root
+ERROR: but there is no YARN_NODEMANAGER_USER defined. Aborting operation.
+
+
+修改vim /etc/profile添加
+export HDFS_NAMENODE_USER=root
+export HDFS_DATANODE_USER=root
+export HDFS_SECONDARYNAMENODE_USER=root
+export YARN_RESOURCEMANAGER_USER=root
+export YARN_NODEMANAGER_USER=root
+
+执行生效命令
+source /etc/profile

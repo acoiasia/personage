@@ -162,7 +162,8 @@ alter table 表名 modify 字段名 目标类型;
 
 drop table if exists 表名;(创建表的时候如果表存在就先删除之前的表再进行创建)
 
-windows下报错误代码2解决方案如下
+windows中net start mysql启动mysql时报错:发生系统错误 2
 mysqld --remove
 mysqld --install
 net start mysql
+

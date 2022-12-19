@@ -1,18 +1,11 @@
 hive use database不显示库名
 解决方案：在hive-site.xml中添加
 <property>
-
     <name>hive.cli.print.header</name>
-
     <value>true</value>
-
 </property>
 
-
 <property>
-
     <name>hive.cli.print.current.db</name>
-
     <value>true</value>
-
 </property>

@@ -1,0 +1,24 @@
+springboot3集成mybatis-plus
+
+在pom文件中添加
+<!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>3.5.2.7-SNAPSHOT</version>
+</dependency>
+
+	<repositories>
+		<!-- 下载mybatis-plus SNAPSHOT 版本所需仓库 -->
+		<repository>
+			<id>ossrh</id>
+			<name>OSS Snapshot repository</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>

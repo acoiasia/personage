@@ -1,3 +1,6 @@
+截断表
+truncate table 表名
+
 mysql8.0时区配置
 ?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai
 

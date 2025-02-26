@@ -1,0 +1,69 @@
+Login: root
+Password:Zte521
+开启Telnet进入
+
+解决刷完后打开任意网页自动跳转LOID注册页面—
+sendcmd 1 DB set PDTCTUSERINFO 0 Status 0
+sendcmd 1 DB set PDTCTUSERINFO 0 Result 1
+sendcmd 1 DB save
+
+更改网口上行
+setmac 1 40961 1
+sendcmd 1 DB save
+reboot
+
+查看系统参数
+setmac show2
+
+开永久telnet（密码Zte521）
+sendcmd 1 DB p TelnetCfg
+sendcmd 1 DB set TelnetCfg 0 Lan_Enable 1
+sendcmd 1 DB set TelnetCfg 0 TS_UName root
+sendcmd 1 DB set TelnetCfg 0 TSLan_UName root
+sendcmd 1 DB set TelnetCfg 0 TS_UPwd Zte521
+sendcmd 1 DB set TelnetCfg 0 TSLan_UPwd Zte521
+sendcmd 1 DB set TelnetCfg 0 Max_Con_Num 99
+sendcmd 1 DB set TelnetCfg 0 ExitTime 999999
+sendcmd 1 DB set TelnetCfg 0 InitSecLvl 3
+sendcmd 1 DB set TelnetCfg 0 CloseServerTime 9999999
+sendcmd 1 DB set TelnetCfg 0 Lan_EnableAfterOlt 1
+sendcmd 1 DB save
+
+删除Wi-Fi前缀
+sendcmd 1 DB set WLANCfg 0 ESSIDPrefix （设置2.4G的ssid前缀为空）
+sendcmd 1 DB set WLANCfg 4 ESSIDPrefix （设置5G的ssid前缀为空）
+sendcmd 1 DB save
+
+切换区域（省份）
+cat /etc/init.d/regioncode 查看区域
+upgradetest sdefconf 307 （shanxi）
+
+修改超密
+sendcmd 1 DB set DevAuthInfo 0 User xxxxxxxx （改超级用户名）
+sendcmd 1 DB set DevAuthInfo 0 Pass xxxxxxxx（改超级用户密码）
+
+查看系统参数
+setmac show2
+
+修改ponmac
+setmac 1 32769 MAC地址
+
+删除电信远程控制
+sendcmd 1 DB p MgtServer （查看一下当前的电信远程控制）
+sendcmd 1 DB set MgtServer 0 URL http://127.0.0.1? 把服务器 URL 改掉
+sendcmd 1 DB set MgtServer 0 Tr069Enable 0 禁用TR069远程控制
+sendcmd 1 DB save
+
+关闭下行GPON光口和WiFi
+ip link set mini-olt down
+rmmod optical
+rmmod mtlk
+rmmod mtlkroot
+
+手动欺骗ITMS注册结果
+sendcmd 1 DB set PDTCTUSERINFO 0 Status 0
+sendcmd 1 DB set PDTCTUSERINFO 0 Result 1
+sendcmd 1 DB save
+
+查看硬件配置信息
+cat /proc/capability/boardinfo
